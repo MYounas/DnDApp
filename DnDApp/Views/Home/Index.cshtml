@@ -1,19 +1,49 @@
 ﻿
 @*<h2>flfgoh</h2>
-<h2>flfgoh</h2>
-<h2>flfgoh</h2>
-<h2>flfgoh</h2>
+    <h2>flfgoh</h2>
+    <h2>flfgoh</h2>
+    <h2>flfgoh</h2>
 
-<div ng-app="myApp">
-    <div ng-controller="myController as vm" class="simpleDemo">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>List A</h2>
-                <ul dnd-list="vm.list1">
-                    <li ng-repeat="item in vm.list1"
+    <div ng-app="myApp">
+        <div ng-controller="myController as vm" class="simpleDemo">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>List A</h2>
+                    <ul dnd-list="vm.list1">
+                        <li ng-repeat="item in vm.list1"
+                            dnd-list-id="{{item.id}}"
+                            dnd-draggable="item"
+                            dnd-moved="vm.falto()"
+                            dnd-effect-allowed="move"
+                            dnd-selected="models.selected=item"
+                            ng-class="{'seleted':models.selected===item}">
+                            {{item.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h2>List B</h2>
+                    <ul dnd-list="vm.list2">
+                        <li ng-repeat="item in vm.list2"
+                            dnd-list-id="{{item.id}}"
+                            dnd-draggable="item"
+                            dnd-moved="vm.falto()"
+                            dnd-effect-allowed="move"
+                            dnd-selected="models.selected=item"
+                            ng-class="{'seleted':models.selected===item}">
+                            {{item.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>List C</h2>
+            <div style="height:150px;border:1px solid red">
+                <ul dnd-list="vm.list3">
+                    <li ng-repeat="item in vm.list3"
                         dnd-list-id="{{item.id}}"
                         dnd-draggable="item"
-                        dnd-moved="vm.falto()"
+                        dnd-moved="vm.falto(item)"
                         dnd-effect-allowed="move"
                         dnd-selected="models.selected=item"
                         ng-class="{'seleted':models.selected===item}">
@@ -21,44 +51,77 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6">
-                <h2>List B</h2>
-                <ul dnd-list="vm.list2">
-                    <li ng-repeat="item in vm.list2"
-                        dnd-list-id="{{item.id}}"
-                        dnd-draggable="item"
-                        dnd-moved="vm.falto()"
-                        dnd-effect-allowed="move"
-                        dnd-selected="models.selected=item"
-                        ng-class="{'seleted':models.selected===item}">
-                        {{item.name}}
+
+        </div>
+    </div>
+
+*@
+
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/angular.js"></script>
+
+@*<script src="~/Scripts/angular-drag-and-drop-lists.js"></script>*@
+
+<script src="~/Scripts/angular-dragdrop.js"></script>
+
+<script src="~/Scripts/myApp.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<h2>flfgoh</h2>
+<h2>flfgoh</h2>
+<h2>flfgoh</h2>
+<h2>flfgoh</h2>
+
+
+<div ng-controller="oneCtrl">
+    <div class='contentWrapper ng-cloak'>
+        <div class='content'>
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <li class="span3" style='margin-left:10px;'>
+                        <div class="thumbnail" data-drop="true" ng-model='list1' data-jqyoui-options="optionsList1" jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list1" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span3" style='margin-left:10px;'>
+                        <div class="thumbnail" data-drop="true" ng-model='list2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list2])'}" jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span3" style='margin-left:10px;'>
+                        <div class="thumbnail" data-drop="true" ng-model='list3' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list3])'}" jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span3" style='margin-left:10px;'>
+                        <div class="thumbnail" data-drop="true" ng-model='list4' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list4])'}" jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list4" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list4" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
-
-        <h2>List C</h2>
-        <div style="height:150px;border:1px solid red">
-            <ul dnd-list="vm.list3">
-                <li ng-repeat="item in vm.list3"
-                    dnd-list-id="{{item.id}}"
-                    dnd-draggable="item"
-                    dnd-moved="vm.falto(item)"
-                    dnd-effect-allowed="move"
-                    dnd-selected="models.selected=item"
-                    ng-class="{'seleted':models.selected===item}">
-                    {{item.name}}
-                </li>
-            </ul>
+    </div>
+    <div class="navbar-inner">
+        <div class="container form-inline" style="text-align: center;">
+            <div class="btn btn-droppable" ng-repeat="item in list5" data-drop="true" ng-model='list5' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list5])'}" jqyoui-droppable="{index: {{$index}}}">
+                <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list5" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-hide="!item.title">{{item.title}}</div>
+            </div>
         </div>
-
     </div>
 </div>
 
 
 
-<script src="~/Scripts/angular.js"></script>
-<script src="~/Scripts/angular-drag-and-drop-lists.js"></script>
-<script src="~/Scripts/myApp.js"></script>
-<link href="~/Content/Site.css" rel="stylesheet" />*@
 
