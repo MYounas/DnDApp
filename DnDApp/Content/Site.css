@@ -10,7 +10,7 @@
 }
 
 .on-drag-hover:before {
-  content: 'Drop him gently';
+  content: 'Drop It';
   display: block;
   color: white;
   font-size: x-large;

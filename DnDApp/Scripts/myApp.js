@@ -1,4 +1,4 @@
-var app = angular.module('plunker', ['ngDragDrop']);
+var app = angular.module('myApp', ['ngDragDrop']);
 
 app.controller('MainCtrl', function ($scope, $http) {
 
@@ -33,23 +33,36 @@ app.controller('MainCtrl', function ($scope, $http) {
     $scope.col1 = "";
     $scope.col2 = "";
 
-    $scope.onDrop1 = function ($data, array) {
+    $scope.dropStart = false;
+    $scope.list1Drop = false;
+    $scope.list2Drop = false;
+
+    $scope.temp = "";
+
+    $scope.dropSuccessHandler = function (array) {
+
+        $('#' + array).children().attr({ 'ui-draggable': false, 'draggable': false });
+
+    };
+
+    $scope.onDrop1 = function ($data) {
+
         $scope.col1 = $data.name;
         $scope.onBoth();
     };
 
-    $scope.onDrop2 = function ($data, array) {
+    $scope.onDrop2 = function ($data) {
         $scope.col2 = $data.name;
         $scope.onBoth();
     };
 
     $scope.onBoth = function () {
-        
+
         if (!($scope.col1 == "" || $scope.col2 == "")) {
             $.ajax({
                 type: "POST",
                 url: "/home/updateList3?temp=" + ($scope.col1 + "," + $scope.col2),
-                success:function(){location.reload();}
+                success: function () { location.reload(); }
             });
         }
 

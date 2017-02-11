@@ -1,6 +1,6 @@
 ﻿
 <!DOCTYPE html>
-<html ng-app="plunker">
+<html ng-app="myApp">
 <head>
     <link href="~/Content/Site.css" rel="stylesheet" />
     <script src="~/Scripts/angular.js"></script>
@@ -10,36 +10,35 @@
 </head>
 <body>
     <div class="container" ng-controller="MainCtrl">
-        <div class="row topRow">
-            <h4 class="heading">
-                Drag and drop between the two lists.
-            </h4>
-        </div>
-
+        <br />
+        <br />
+        <br />
         <div class="row">
             <h2>List A</h2>
             <div class="col-xs-4">
-                <ul>
-                    <li ui-draggable="true" drag="man"
-                        ng-repeat="man in list1 track by $index">
-                        {{man.name}}
+                <ul id="listA">
+                    <li ui-draggable="true" drag="aData"
+                        on-drop-success="dropSuccessHandler('listA')"
+                        ng-repeat="aData in list1 track by $index">
+                        {{aData.name}}
                     </li>
                 </ul>
             </div>
             <div class="col-xs-4">
                 <h2>List B</h2>
-                <ul>
-                    <li ui-draggable="true" drag="woman"
-                        ng-repeat="woman in list2 track by $index">
-                        {{woman.name}}
+                <ul id="listB">
+                    <li ui-draggable="true" drag="bData"
+                        on-drop-success="dropSuccessHandler('listB')"
+                        ng-repeat="bData in list2 track by $index">
+                        {{bData.name}}
                     </li>
                 </ul>
             </div>
             <div class="col-xs-4">
                 <h2>List C</h2>
                 <ul>
-                    <li ng-repeat="man in list3 track by $index">
-                        {{man.name}}
+                    <li ng-repeat="cData in list3 track by $index">
+                        {{cData.name}}
                     </li>
                 </ul>
             </div>
@@ -48,8 +47,8 @@
         <div style="border:1px solid red;height:150px">
             <table border="1">
                 <tr>
-                    <th ui-on-drop="onDrop1($data,women)" width="200px" height="50px">{{col1}}</th>
-                    <th ui-on-drop="onDrop2($data,women)" width="200px" height="50px">{{col2}}</th>
+                    <th ui-on-drop="onDrop1($data)" width="200px" height="50px">{{col1}}</th>
+                    <th ui-on-drop="onDrop2($data)" width="200px" height="50px">{{col2}}</th>
                 </tr>
             </table>
         </div>
