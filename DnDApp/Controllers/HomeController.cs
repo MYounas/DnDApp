@@ -35,11 +35,13 @@ namespace DnDApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateList3(tableC TC)
+        public ActionResult updateList3(string temp)
         {
+            tableC TC = new tableC();
+            TC.name = temp;
             db.tableCs.Add(TC);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
         public ActionResult About()
         {
