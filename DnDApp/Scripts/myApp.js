@@ -1,4 +1,4 @@
-﻿var app = angular.module('plunker', ['ngDragDrop']);
+var app = angular.module('plunker', ['ngDragDrop']);
 
 app.controller('MainCtrl', function ($scope) {
     $scope.men = [
@@ -21,7 +21,6 @@ app.controller('MainCtrl', function ($scope) {
 
 
     $scope.dropSuccessHandler = function ($event, index, array) {
-        //alert(JSON.stringify(array[index]));
         array.splice(index, 1);
     };
 

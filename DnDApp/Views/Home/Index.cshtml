@@ -1,21 +1,10 @@
 ﻿
-<h2>dklfhldhf</h2>
-<h2>dklfhldhf</h2>
-<h2>dklfhldhf</h2>
-<h2>dklfhldhf</h2>
-<h2>dklfhldhf</h2>
-<h2>dklfhldhf</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
 
-<!DOCTYPE html>
-<html ng-app="plunker">
-<head>
-    <meta charset="utf-8" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/myApp.js"></script>
-    <script src="~/Scripts/draganddrop.js"></script>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-</head>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/myApp.js"></script>
+<script src="~/Scripts/draganddrop.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <body>
     <div class="container" ng-controller="MainCtrl">
         <div class="row topRow">
@@ -27,7 +16,7 @@
         <div class="row">
             <div class="col-xs-6">
                 <ul ui-on-drop="onDrop($event,$data,men)">
-                    <li ui-draggable="true" drag="man"
+                    <li ui-draggable="false" drag="man"
                         on-drop-success="dropSuccessHandler($event,$index,men)"
                         ng-repeat="man in men track by $index">
                         {{man}}
@@ -36,7 +25,7 @@
             </div>
             <div class="col-xs-6">
                 <ul ui-on-drop="onDrop($event,$data,women)">
-                    <li ui-draggable="true" drag="woman"
+                    <li ui-draggable="false" drag="woman"
                         on-drop-success="dropSuccessHandler($event,$index,women)"
                         ng-repeat="woman in women track by $index">
                         {{woman}}
@@ -46,4 +35,3 @@
         </div>
     </div>
 </body>
-</html>
