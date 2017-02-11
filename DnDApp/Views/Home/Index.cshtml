@@ -1,0 +1,64 @@
+﻿
+@*<h2>flfgoh</h2>
+<h2>flfgoh</h2>
+<h2>flfgoh</h2>
+<h2>flfgoh</h2>
+
+<div ng-app="myApp">
+    <div ng-controller="myController as vm" class="simpleDemo">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>List A</h2>
+                <ul dnd-list="vm.list1">
+                    <li ng-repeat="item in vm.list1"
+                        dnd-list-id="{{item.id}}"
+                        dnd-draggable="item"
+                        dnd-moved="vm.falto()"
+                        dnd-effect-allowed="move"
+                        dnd-selected="models.selected=item"
+                        ng-class="{'seleted':models.selected===item}">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>List B</h2>
+                <ul dnd-list="vm.list2">
+                    <li ng-repeat="item in vm.list2"
+                        dnd-list-id="{{item.id}}"
+                        dnd-draggable="item"
+                        dnd-moved="vm.falto()"
+                        dnd-effect-allowed="move"
+                        dnd-selected="models.selected=item"
+                        ng-class="{'seleted':models.selected===item}">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>List C</h2>
+        <div style="height:150px;border:1px solid red">
+            <ul dnd-list="vm.list3">
+                <li ng-repeat="item in vm.list3"
+                    dnd-list-id="{{item.id}}"
+                    dnd-draggable="item"
+                    dnd-moved="vm.falto(item)"
+                    dnd-effect-allowed="move"
+                    dnd-selected="models.selected=item"
+                    ng-class="{'seleted':models.selected===item}">
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-drag-and-drop-lists.js"></script>
+<script src="~/Scripts/myApp.js"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />*@
+
